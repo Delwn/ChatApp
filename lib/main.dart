@@ -1,11 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gdsc_app/homepage.dart';
 import 'package:gdsc_app/login_payload.dart';
-import 'package:gdsc_app/success_payload.dart';
-import 'package:gdsc_app/sucess_file.dart';
 import 'package:http/http.dart' as http;
 
 import 'pallete.dart';
@@ -43,11 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final passwordController = TextEditingController();
   bool _usernameFilled = true, _passwordFilled = true;
 
-  final headers = {"Content-type": "application/json"};
-  final json = {"username": "test", "password": "test"};
   final url = Uri.parse('http://192.168.137.1:5000/validate');
-  final testUrl = Uri.parse('http://192.168.122.193:5000/test');
-  final googleUrl = Uri.parse('https://www.google.com');
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(left: 40, right: 40),
                 child: TextField(
                   controller: passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                     labelText: "Password",
                     hintText: "Enter Password",
